@@ -12,12 +12,30 @@ public class CubeController : MonoBehaviour {
 
 	//地面の位置（課題）
 	private float groundLevel = -3.0f;
+	//（課題）
+
+	public GameObject cubePrefab;
+
+	private  AudioSource audioSource;
+
+	public AudioClip audioClip ; 
+
 
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
+	//Unityちゃんがキューブに当たった場合と当たらなかった場合の効果音（課題）
+	void OnCollisionEnter2D(Collision2D col) {
+		
+		if (col.gameObject.name == "cubePrefab") {
+			Debug.Log (gameObject);
+			audioSource = gameObject.GetComponent<AudioSource> ();
+			audioSource.clip = audioClip;
+			audioSource.Play (); 
+
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 		//キューブを移動させる
@@ -29,9 +47,9 @@ public class CubeController : MonoBehaviour {
 			    Destroy (gameObject);
 
 		//キューブが地面に当たった場合とキューブ同士がぶつかった時の効果音（課題）
-			GetComponent<AudioSource> ().volume = (groundLevel);
+			GetComponent<AudioSource> ().Play();
 
-			Debug.Log (groundLevel);
+		
  	}
   }
 }

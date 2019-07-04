@@ -3,7 +3,9 @@ guid: 599f72e55ebc0449db67d98d433cb3b9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cubePrefab: {instanceID: 0}
+  - audioClip: {fileID: 8300000, guid: 0c88c49af03fc491599c2f2e6cb43b71, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
