@@ -27,8 +27,8 @@ public class CubeController : MonoBehaviour {
 	}
 	//Unityちゃんがキューブに当たった場合と当たらなかった場合の効果音（課題）
 	void OnCollisionEnter2D(Collision2D col) {
-		
-		if (col.gameObject.name == "cubePrefab") {
+		Debug.Log (col.gameObject.name);
+		if (col.gameObject.tag == "cubePrefab" || col.gameObject.name == "ground") {
 			Debug.Log (gameObject);
 			audioSource = gameObject.GetComponent<AudioSource> ();
 			audioSource.clip = audioClip;
@@ -45,10 +45,6 @@ public class CubeController : MonoBehaviour {
 		//画面外に出たら破棄する
 		if (transform.position.x < this .deadLine) {
 			    Destroy (gameObject);
-
-		//キューブが地面に当たった場合とキューブ同士がぶつかった時の効果音（課題）
-			GetComponent<AudioSource> ().Play();
-
 		
  	}
   }
